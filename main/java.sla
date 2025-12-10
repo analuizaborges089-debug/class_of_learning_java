@@ -1,0 +1,35 @@
+```import java.util.Scanner;
+import java.util.Random;
+public class jogodadiscordia {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Random gerador = new Random();
+        int aleatorio = gerador.nextInt(100) + 1;
+
+        System.out.println("--- Jogo da Adivinhação ---");
+        System.out.println("Obs.: Você tem 1000 tentativas válidas!");
+        System.out.println();
+        int nTentativas = 1000;
+
+        while (true) {
+            System.out.print("Advinhe o valor que está entre 1 e 100: ");
+            int N = sc.nextInt();
+
+            if (N == aleatorio) {
+                System.out.println("Parabéns, você é o cara!");
+                break;
+            } else {
+                nTentativas = nTentativas - 1;
+                System.out.printf("Você tem ainda %d\n", nTentativas);
+            }
+            if (nTentativas < 1000) {
+                System.out.println("Você errou, tente novamente!");
+                System.out.println(aleatorio);
+                continue;
+            } else{
+                System.out.printf("Acabou as tentativas, o número correto é: %d\n", aleatorio);
+            }
+        }
+        sc.close();
+    }
+}```
